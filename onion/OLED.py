@@ -161,13 +161,13 @@ class SSD1306Base(object):
         self._cursor = 0
         # Handle hardware I2C
         if i2c is not None:
-            self._i2c = i2c.get_i2c_device(i2c_address)
+            self._i2c = i2c.get_device(i2c_address)
         else:
             import I2C as I2C
             if i2c_bus is None:
-                self._i2c = I2C.get_i2c_device(i2c_address)
+                self._i2c = I2C.get_device(i2c_address)
             else:
-                self._i2c = I2C.get_i2c_device(i2c_address, busnum=i2c_bus)
+                self._i2c = I2C.get_device(i2c_address, busnum=i2c_bus)
 
     def _initialize(self):
         raise NotImplementedError
